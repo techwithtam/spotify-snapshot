@@ -14,12 +14,15 @@ Full write-up + the live archive of my own monthly snapshots:
 The fastest way to use this: open Claude Code, Hermes, Open Code, or Codex,
 point it at this repo, and say:
 
-> Set up the monthly Spotify snapshot automation in this repo on my machine
-> for my Spotify account. Walk me through any permissions I need to grant.
+> Read AGENTS.md and set up this Spotify monthly snapshot automation on my
+> machine for my Spotify account. Walk me through any permissions I need to
+> grant.
 
-It will guide you through the Spotify Developer dashboard, run
-`get_refresh_token.py` to get your refresh token, and wire the scheduler for
-your OS. You don't have to read the rest of this README unless you want to.
+`AGENTS.md` is the step-by-step procedure your agent follows. It includes
+the Spotify Developer dashboard setup, the one-time OAuth helper, a smoke
+test, and the right scheduler for your OS (`launchd` on Mac, `cron` on
+Linux, Task Scheduler on Windows). You don't have to read the rest of this
+README unless you want to.
 
 ## What's in the repo
 
