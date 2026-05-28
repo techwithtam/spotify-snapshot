@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Save as ~/Library/LaunchAgents/com.YOU.spotify-snapshot.plist after editing
+  the placeholders, then:
+    launchctl load ~/Library/LaunchAgents/com.YOU.spotify-snapshot.plist
+
+  Fires at 12:05 AM on the 1st of every month. If your Mac is asleep,
+  launchd catches up on next wake.
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.YOU.spotify-snapshot</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/env</string>
+    <string>python3</string>
+    <string>/Users/YOU/path/to/spotify_monthly_snapshot.py</string>
+  </array>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>SPOTIFY_CLIENT_ID</key>
+    <string>your-client-id</string>
+    <key>SPOTIFY_CLIENT_SECRET</key>
+    <string>your-client-secret</string>
+    <key>SPOTIFY_REFRESH_TOKEN</key>
+    <string>your-refresh-token</string>
+  </dict>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Day</key>
+    <integer>1</integer>
+    <key>Hour</key>
+    <integer>0</integer>
+    <key>Minute</key>
+    <integer>5</integer>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/spotify-snapshot.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/spotify-snapshot.err</string>
+</dict>
+</plist>
